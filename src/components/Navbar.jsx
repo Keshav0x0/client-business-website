@@ -39,7 +39,7 @@ function Navbar() {
             href="https://wa.me/919999999999"
             className="whatsapp-btn"
           >
-            WHATSAPP
+            
           </a>
         </div>
 
