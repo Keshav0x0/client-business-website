@@ -1,0 +1,78 @@
+.topnav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 32px;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+.logo-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-box {
+  width: 42px;
+  height: 32px;
+  padding: 0 4px;
+  background: #1e7b45;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  border-radius: 3px;
+  font-weight: 700;
+}
+
+.logo-text .name {
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+}
+
+.logo-text .sub {
+  font-size: 9.5px;
+  color: #6b7280;
+  letter-spacing: 0.1em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.nav-links a {
+  color: #111213;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  color: #1e7b45;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.signin-btn {
+  background: #1a1a1a;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 4px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  .nav-links {
+    display: none;
+  }
+}
