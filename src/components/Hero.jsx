@@ -1,4 +1,4 @@
-import "./Hero.css";
+import "../styles/hero.css";
 import { Link } from "react-router-dom";
 
 function Hero() {
@@ -9,8 +9,8 @@ function Hero() {
           <div className="eyebrow">EST. 20+ YEARS · MADE IN INDIA</div>
 
           <h1>
-            TARPS THAT <span className="accent">OUTLAST</span> THE
-            WEATHER.
+            TARPS THAT <span className="accent">OUTLAST</span>
+             <div className="weather">THE WEATHER</div>
           </h1>
 
           <p>
@@ -49,7 +49,7 @@ function Hero() {
         <div className="hero-media">
           <div className="hero-img"></div>
 
-          <div className="hero-tag">
+          {/* <div className="hero-tag">
             <div className="eyebrow">FEATURE MODEL</div>
 
             <div
@@ -63,7 +63,7 @@ function Hero() {
             </div>
 
             <div className="price">₹499</div>
-          </div>
+          </div> */}
         </div>
       </section>
     </>
