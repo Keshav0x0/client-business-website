@@ -1,4 +1,3 @@
-import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Carousel from "../components/Carousel";
 import FeaturedProducts from "../components/FeaturedProducts";
@@ -9,13 +8,12 @@ import SearchBar from "../components/SearchBar";
 function Home() {
   return (
     <>
-      <Navbar />
+
       <Hero />
       <SearchBar />
       <Carousel />
       <FeaturedProducts />
       <WhyUs />
-      <Footer />
     </>
   );
 }

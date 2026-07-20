@@ -1,0 +1,141 @@
+.quote-page {
+  padding: 80px 6%;
+  background: #f8f8f8;
+  min-height: 100vh;
+}
+
+.quote-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.quote-header p {
+  color: #ff9f1c;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+
+.quote-header h1 {
+  font-size: 48px;
+  margin: 15px 0;
+  color: #111;
+}
+
+.quote-header span {
+  color: #555;
+  max-width: 700px;
+  display: block;
+  margin: auto;
+  line-height: 1.8;
+}
+
+.quote-container {
+  display: grid;
+  grid-template-columns: 0.9fr 1.4fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* LEFT CARD */
+
+.quote-info {
+  background: white;
+  border-radius: 25px;
+  padding: 40px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  border-top: 5px solid #ff9f1c;
+}
+
+.quote-info h2 {
+  color: #111;
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+.quote-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.quote-info li {
+  color: #444;
+  margin-bottom: 22px;
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+/* FORM */
+
+.quote-form {
+  background: white;
+  border-radius: 25px;
+  padding: 40px;
+  display: grid;
+  gap: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.quote-form label {
+  color: #222;
+  font-weight: 600;
+  margin-bottom: -10px;
+}
+
+.quote-form input,
+.quote-form select,
+.quote-form textarea {
+  width: 100%;
+  padding: 18px;
+  border: 2px solid #ececec;
+  border-radius: 12px;
+  background: #fafafa;
+  outline: none;
+  font-size: 15px;
+  color: #222;
+  transition: 0.3s;
+  box-sizing: border-box;
+}
+
+.quote-form input:focus,
+.quote-form select:focus,
+.quote-form textarea:focus {
+  border-color: #ff9f1c;
+  background: white;
+  box-shadow: 0 0 15px rgba(255, 159, 28, 0.15);
+}
+
+.quote-form input::placeholder,
+.quote-form textarea::placeholder {
+  color: #888;
+  opacity: 1;
+}
+
+.quote-form button {
+  border: none;
+  padding: 18px;
+  border-radius: 12px;
+  background: #ff9f1c;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.quote-form button:hover {
+  background: #e68a00;
+  transform: translateY(-2px);
+}
+
+/* MOBILE */
+
+@media (max-width: 992px) {
+  .quote-container {
+    grid-template-columns: 1fr;
+  }
+
+  .quote-header h1 {
+    font-size: 36px;
+  }
+}

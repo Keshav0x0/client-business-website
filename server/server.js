@@ -2,11 +2,10 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-
+import adminRoutes from "./routes/adminRoutes.js";
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
-
 
 dotenv.config();
 
@@ -23,7 +22,7 @@ app.use(cookieParser());
 app.use("/api/products", productRoutes);
 
 app.use("/api/auth", authRoutes);
-
+app.use("/api/admin",adminRoutes);
 app.get("/", (req, res) => {
   res.send("🚀 KV Enterprises Backend Running...");
 });

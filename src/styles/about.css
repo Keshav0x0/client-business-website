@@ -1,0 +1,142 @@
+.about-page {
+  padding: 80px 6%;
+  background: #f8f8f8;
+}
+
+.about-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.about-header p {
+  color: #ff9f1c;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.about-header h1 {
+  font-size: 48px;
+  margin: 15px 0;
+  color: #111;
+}
+
+.about-header span {
+  max-width: 700px;
+  margin: auto;
+  display: block;
+  color: #555;
+  line-height: 1.8;
+}
+
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  margin-bottom: 50px;
+}
+
+.stat-card {
+  background: white;
+  padding: 35px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.stat-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  background: #ff9f1c;
+  color: white;
+}
+
+.stat-card:hover h2 {
+  color: white;
+}
+
+.about-card {
+  background: white;
+  padding: 40px;
+  border-radius: 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.about-card:hover {
+  transform: translateY(-5px);
+}
+
+.about-card h2 {
+  margin-bottom: 20px;
+  color: #111;
+}
+
+.about-card p {
+  color: #555;
+  line-height: 1.8;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 20px;
+}
+
+.why-grid div {
+  background: #fafafa;
+  padding: 20px;
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.why-grid div:hover {
+  background: #ff9f1c;
+  color: white;
+  transform: scale(1.03);
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 20px;
+}
+
+.process-card {
+  background: #111;
+  color: white;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.process-card:hover {
+  background: #ff9f1c;
+  transform: translateY(-10px);
+}
+
+.process-card:hover span {
+  color: white;
+}
+
+@media (max-width: 992px) {
+
+  .stats-container,
+  .process-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .about-header h1 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .stats-container,
+  .why-grid,
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,3 +1,4 @@
+import "../styles/whyUs.css"
 import "../styles/products.css";
 
 function WhyUs() {

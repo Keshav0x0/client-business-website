@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import "../styles/navbar.css";
+import { FaWhatsapp } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
+   const navigate = useNavigate();
   return (
     <>
       <header className="topnav">
@@ -31,15 +34,19 @@ function Navbar() {
         {/* DESKTOP BUTTONS */}
 
         <div className="nav-right">
-          <Link to="/quote" className="quote-btn">
-            GET QUOTE
-          </Link>
+          <button
+  className="quote-btn"
+  onClick={() => navigate("/quote")}
+>
+  Get Quote &nbsp;
+  <i className="fa-solid fa-file"></i>
+</button>
 
           <a
-            href="https://wa.me/919999999999"
+            href="https://wa.me/9818171023"
             className="whatsapp-btn"
           >
-            
+            <FaWhatsapp/>
           </a>
         </div>
 
@@ -80,11 +87,11 @@ function Navbar() {
         </Link>
 
         <Link to="/quote" onClick={() => setMenuOpen(false)}>
-          GET QUOTE
+          GET QUOTE <i className="fa-solid fa-file"></i>
         </Link>
 
-        <a href="https://wa.me/919999999999">
-          WHATSAPP
+        <a href="https://wa.me/9818171023">
+          WHATSAPP <FaWhatsapp />
         </a>
       </div>
     </>

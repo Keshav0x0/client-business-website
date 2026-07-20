@@ -1,13 +1,17 @@
-function ProductCard({ title, image }) {
+function ProductCard({ title, image, desc }) {
   return (
-    <div className="card">
-      <img src={image} alt={title} className="card-image" />
+    <div className="product-card">
+      <img
+        src={image}
+        alt={title}
+        className="card-image"
+      />
 
       <h3>{title}</h3>
 
-      <p>Premium quality tarpaulin for industrial and commercial use.</p>
+      <p>{desc}</p>
 
-      <button>VIEW DETAILS</button>
+      <button className="quote-product">GET QUOTE</button>
     </div>
   );
 }
