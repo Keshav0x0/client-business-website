@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Dashboard from "../Dashboard";
-import HomeCMS from "../HomeCMS";
-import ProductsCMS from "../ProductsCMS";
-import AboutCMS from "../AboutCMS";
-import ContactCMS from "../ContactCMS";
-import QuotesCMS from "../QuotesCMS";
-import SettingsCMS from "../SettingsCMS";
+
+import Dashboard from "../cms/Dashboard";
+import ProductsCMS from "../cms/ProductsCMS";
+import AboutCMS from "../cms/AboutCMS";
+import ContactCMS from "../cms/ContactCMS";
+import QuotesCMS from "../cms/QuotesCMS";
+import SettingsCMS from "../cms/SettingsCMS";
+
 import "../styles/adminDashboard.css";
 
 function AdminDashboard() {
@@ -27,93 +28,87 @@ function AdminDashboard() {
   <div className="admin-layout">
 
     <div className="admin-sidebar">
-      <h2>KV CMS</h2>
 
-      {/* Dashboard */}
-      <p
-        className={`admin-menu-item ${
-          activePage === "dashboard" ? "active" : ""
-        }`}
-        onClick={() => setActivePage("dashboard")}
-      >
-        Dashboard
-      </p>
+  <h2>KV CMS</h2>
 
-      {/* Home */}
-      <p
-        className={`admin-menu-item ${
-          activePage === "home" ? "active" : ""
-        }`}
-        onClick={() => setActivePage("home")}
-      >
-        Home
-      </p>
+  <div className="admin-menu">
 
-      {/* Products */}
-      <p
-        className={`admin-menu-item ${
-          activePage === "products" ? "active" : ""
-        }`}
-        onClick={() => setActivePage("products")}
-      >
-        Products
-      </p>
+    <p
+      className={`admin-menu-item ${
+        activePage === "dashboard" ? "active" : ""
+      }`}
+      onClick={() => setActivePage("dashboard")}
+    >
+      Dashboard
+    </p>
 
-      {/* About */}
-      <p
-        className={`admin-menu-item ${
-          activePage === "about" ? "active" : ""
-        }`}
-        onClick={() => setActivePage("about")}
-      >
-        About
-      </p>
 
-      {/* Contact */}
-      <p
-        className={`admin-menu-item ${
-          activePage === "contact" ? "active" : ""
-        }`}
-        onClick={() => setActivePage("contact")}
-      >
-        Contact
-      </p>
+    <p
+      className={`admin-menu-item ${
+        activePage === "products" ? "active" : ""
+      }`}
+      onClick={() => setActivePage("products")}
+    >
+      Products
+    </p>
 
-      {/* Quotes */}
-      <p
-        className={`admin-menu-item ${
-          activePage === "quotes" ? "active" : ""
-        }`}
-        onClick={() => setActivePage("quotes")}
-      >
-        Quotes
-      </p>
 
-      {/* Settings */}
-      <p
-        className={`admin-menu-item ${
-          activePage === "settings" ? "active" : ""
-        }`}
-        onClick={() => setActivePage("settings")}
-      >
-        Settings
-      </p>
+    <p
+      className={`admin-menu-item ${
+        activePage === "about" ? "active" : ""
+      }`}
+      onClick={() => setActivePage("about")}
+    >
+      About
+    </p>
 
-      <p
-  className="admin-menu-item"
-  onClick={() => {
-    localStorage.removeItem("token");
-    console.log("Token Deleted");
-    navigate("/login");
-  }}
->
-  Logout
-</p>
-    </div>
+
+    <p
+      className={`admin-menu-item ${
+        activePage === "contact" ? "active" : ""
+      }`}
+      onClick={() => setActivePage("contact")}
+    >
+      Contact
+    </p>
+
+
+    <p
+      className={`admin-menu-item ${
+        activePage === "quotes" ? "active" : ""
+      }`}
+      onClick={() => setActivePage("quotes")}
+    >
+      Quotes
+    </p>
+
+
+    <p
+      className={`admin-menu-item ${
+        activePage === "settings" ? "active" : ""
+      }`}
+      onClick={() => setActivePage("settings")}
+    >
+      Settings
+    </p>
+
+
+    <p
+      className="admin-menu-item logout-btn"
+      onClick={() => {
+        localStorage.removeItem("token");
+        navigate("/login");
+      }}
+    >
+      Logout
+    </p>
+
+  </div>
+
+</div>
 
     <div className="admin-content">
       {activePage === "dashboard" && <Dashboard />}
-      {activePage === "home" && <HomeCMS />}
       {activePage === "products" && <ProductsCMS />}
       {activePage === "about" && <AboutCMS />}
       {activePage === "contact" && <ContactCMS />}

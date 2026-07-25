@@ -1,49 +1,36 @@
 import express from "express";
-import Product from "../models/Product.js";
+
+import {
+  getProducts,
+  getProduct,
+  createProduct,
+  updateProduct,
+  deleteProduct,
+} from "../controllers/productController.js";
+
 
 const router = express.Router();
 
+
 // GET ALL PRODUCTS
-router.get("/", async (req, res) => {
-  try {
-    const products = await Product.find();
+router.get("/", getProducts);
 
-    res.json({
-      success: true,
-      products,
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: error.message,
-    });
-  }
-});
 
-// ADD PRODUCT
-router.post("/", async (req, res) => {
-  try {
-    const { name, description, price, category, image } = req.body;
+// GET SINGLE PRODUCT
+router.get("/:id", getProduct);
 
-    const product = await Product.create({
-      name,
-      description,
-      price,
-      category,
-      image,
-    });
 
-    res.status(201).json({
-      success: true,
-      message: "Product Added Successfully",
-      product,
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: error.message,
-    });
-  }
-});
+// CREATE PRODUCT
+router.post("/", createProduct);
+
+
+// UPDATE PRODUCT
+router.put("/:id", updateProduct);
+
+
+// DELETE PRODUCT
+router.delete("/:id", deleteProduct);
+
+
 
 export default router;
