@@ -6,6 +6,8 @@ import adminRoutes from "./routes/adminRoutes.js";
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
+import aboutRoutes from "./routes/aboutRoutes.js";
+import contactRoutes from "./routes/contactRoutes.js";
 
 dotenv.config();
 
@@ -23,6 +25,8 @@ app.use("/api/products", productRoutes);
 
 app.use("/api/auth", authRoutes);
 app.use("/api/admin",adminRoutes);
+app.use("/api/about", aboutRoutes);
+app.use("/api/contact", contactRoutes);
 app.get("/", (req, res) => {
   res.send("🚀 KV Enterprises Backend Running...");
 });

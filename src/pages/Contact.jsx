@@ -1,48 +1,72 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
 import "../styles/contact.css";
 
 function Contact() {
+  const [contact, setContact] = useState(null);
+
+  const fetchContact = async () => {
+    try {
+      const res = await axios.get(
+        "http://localhost:5000/api/contact"
+      );
+
+      setContact(res.data.contact);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchContact();
+  }, []);
+
+if (!contact) {
+  return <h2>No Contact Information Available.</h2>;
+}
+
   return (
     <section className="contact-page">
       <div className="contact-header">
         <p>CONTACT US</p>
 
-        <h1>Let's Talk About Your Requirements</h1>
+        <h1>{contact.heading}</h1>
 
-        <span>
-          Have questions or need a custom tarpaulin solution? Reach out to
-          KV Enterprises and our team will assist you.
-        </span>
+        <span>{contact.description}</span>
       </div>
 
       <div className="contact-container">
+
         {/* Left Side */}
 
         <div className="contact-info">
+
           <h2>Get In Touch</h2>
 
           <div className="info-box">
+            <h3>Company</h3>
+            <p>{contact.companyName}</p>
+          </div>
+
+          <div className="info-box">
             <h3>Phone</h3>
-            <p>+91 XXXXX XXXXX</p>
+            <p>{contact.phone}</p>
           </div>
 
           <div className="info-box">
             <h3>Email</h3>
-            <p>info@kventerprises.com</p>
+            <p>{contact.email}</p>
           </div>
 
           <div className="info-box">
             <h3>Address</h3>
-            <p>
-              KV Enterprises,
-              <br />
-              Rohtak, Haryana, India
-            </p>
+            <p>{contact.address}</p>
           </div>
 
           <div className="info-box">
             <h3>Working Hours</h3>
-            <p>Monday - Saturday</p>
-            <p>9:00 AM - 7:00 PM</p>
+            <p>{contact.workingDays}</p>
+            <p>{contact.workingHours}</p>
           </div>
         </div>
 
@@ -50,6 +74,7 @@ function Contact() {
 
         <form className="contact-form">
           <label htmlFor="name">Full Name</label>
+
           <input
             id="name"
             type="text"
@@ -57,6 +82,7 @@ function Contact() {
           />
 
           <label htmlFor="email">Email Address</label>
+
           <input
             id="email"
             type="email"
@@ -64,6 +90,7 @@ function Contact() {
           />
 
           <label htmlFor="phone">Phone Number</label>
+
           <input
             id="phone"
             type="tel"
@@ -71,14 +98,18 @@ function Contact() {
           />
 
           <label htmlFor="message">Message</label>
+
           <textarea
             id="message"
             rows="6"
             placeholder="How can we help you?"
           ></textarea>
 
-          <button type="submit">Send Message</button>
+          <button type="submit">
+            Send Message
+          </button>
         </form>
+
       </div>
     </section>
   );

@@ -246,11 +246,11 @@ function ProductsCMS() {
 
     }catch(error){
 
+  console.log("FULL ERROR:", error);
+  console.log("RESPONSE:", error.response?.data);
+  console.log("STATUS:", error.response?.status);
 
-      console.log(error);
-
-
-    }
+}
 
 
   };

@@ -21,14 +21,14 @@ export const getProducts = async (req,res)=>{
 
   }catch(error){
 
-    res.status(500).json({
+  console.log("CREATE PRODUCT ERROR:", error);
 
-      success:false,
-      message:error.message
+  res.status(500).json({
+    success:false,
+    message:error.message
+  });
 
-    });
-
-  }
+}
 
 };
 
@@ -83,52 +83,35 @@ export const getProduct = async(req,res)=>{
 };
 
 
-
-
-
-
 // CREATE PRODUCT
 
 export const createProduct = async(req,res)=>{
 
+  console.log("DATABASE:", Product.db.name);
+  console.log("COLLECTION:", Product.collection.name);
+
   try{
 
-
-    const product = await Product.create(
-      req.body
-    );
-
+    const product = await Product.create(req.body);
 
     res.status(201).json({
-
       success:true,
-
       message:"Product Added Successfully",
-
       product
-
     });
-
-
 
   }catch(error){
 
+    console.log(error);
+
     res.status(500).json({
-
       success:false,
-
       message:error.message
-
     });
 
   }
 
-
 };
-
-
-
-
 
 
 // UPDATE PRODUCT
