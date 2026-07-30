@@ -8,7 +8,7 @@ import authRoutes from "./routes/authRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import aboutRoutes from "./routes/aboutRoutes.js";
 import contactRoutes from "./routes/contactRoutes.js";
-
+import quoteRoutes from "./routes/quoteRoutes.js";
 dotenv.config();
 
 const app = express();
@@ -27,6 +27,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/admin",adminRoutes);
 app.use("/api/about", aboutRoutes);
 app.use("/api/contact", contactRoutes);
+app.use("/api/quotes", quoteRoutes);
 app.get("/", (req, res) => {
   res.send("🚀 KV Enterprises Backend Running...");
 });

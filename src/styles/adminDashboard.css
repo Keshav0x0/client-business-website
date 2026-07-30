@@ -747,3 +747,119 @@
   0 10px 25px rgba(0,0,0,.08);
 
 }
+
+/* quotes.css */
+/* QuotesCMS.css */
+
+.quotes-cms {
+  padding: 30px;
+}
+
+.quotes-cms h2 {
+  margin-bottom: 25px;
+}
+
+.quote-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  margin-bottom: 25px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.quote-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.quote-header h3 {
+  margin: 0;
+}
+
+.status {
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.contacted {
+  background: #cfe2ff;
+  color: #084298;
+}
+
+.completed {
+  background: #d1e7dd;
+  color: #0f5132;
+}
+
+.quote-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.quote-message {
+  margin-top: 20px;
+  background: #f7f7f7;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.quote-message p {
+  margin-top: 10px;
+}
+
+.quote-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.quote-actions button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.delete-btn {
+  background: #FF0000 !important;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .quote-details {
+    grid-template-columns: 1fr;
+  }
+
+  .quote-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+.quote-actions button:nth-child(1) {
+  background: #ffc107;
+  color: black;
+}
+
+.quote-actions button:nth-child(2) {
+  background: #0d6efd;
+  color: white;
+}
+
+.quote-actions button:nth-child(3) {
+  background: #00FF00;
+  color: black;
+}
