@@ -9,7 +9,7 @@ import { protect } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
-router.post("/login", loginAdmin);
+router.post("kv-admin/login", loginAdmin);
 router.get("/me", protect, getMe);
 router.post("/logout", protect, logoutAdmin);
 

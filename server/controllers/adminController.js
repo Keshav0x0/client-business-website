@@ -6,14 +6,7 @@ export const loginAdmin = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    console.log("=================================");
-    console.log("EMAIL:", email);
-    console.log("PASSWORD:", password);
-
-    // Find Admin
     const admin = await Admin.findOne({ email });
-
-    console.log("ADMIN FOUND:", admin);
 
     if (!admin) {
       return res.status(400).json({
@@ -21,13 +14,10 @@ export const loginAdmin = async (req, res) => {
       });
     }
 
-    // Compare Password
     const isMatch = await bcrypt.compare(
       password,
       admin.password
     );
-
-    console.log("PASSWORD MATCH:", isMatch);
 
     if (!isMatch) {
       return res.status(400).json({
@@ -35,7 +25,6 @@ export const loginAdmin = async (req, res) => {
       });
     }
 
-    // Generate JWT
     const token = jwt.sign(
       {
         id: admin._id,
@@ -46,9 +35,6 @@ export const loginAdmin = async (req, res) => {
       }
     );
 
-    console.log("LOGIN SUCCESSFUL");
-    console.log("=================================");
-
     res.status(200).json({
       message: "Login Successful",
       token,
@@ -58,11 +44,61 @@ export const loginAdmin = async (req, res) => {
         email: admin.email,
       },
     });
+
   } catch (error) {
-    console.log("LOGIN ERROR:", error);
+
+    console.log(error);
 
     res.status(500).json({
       message: "Server Error",
     });
+
+  }
+
+  console.log(req.body);
+
+const admin = await Admin.findOne({ email });
+
+console.log(admin);
+
+};
+
+export const verifyAdmin = async (req, res) => {
+  try {
+
+    const authHeader = req.headers.authorization;
+
+    if (!authHeader) {
+      return res.status(401).json({
+        success: false,
+      });
+    }
+
+    const token = authHeader.split(" ")[1];
+
+    const decoded = jwt.verify(
+      token,
+      process.env.JWT_SECRET
+    );
+
+    const admin = await Admin.findById(decoded.id).select("-password");
+
+    if (!admin) {
+      return res.status(401).json({
+        success: false,
+      });
+    }
+
+    res.json({
+      success: true,
+      admin,
+    });
+
+  } catch (err) {
+
+    res.status(401).json({
+      success: false,
+    });
+
   }
 };

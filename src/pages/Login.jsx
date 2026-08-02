@@ -27,7 +27,7 @@ function Login() {
 
       alert("Login Successful!");
 
-      navigate("/admin");
+      navigate("/admin", { replace: true });
     } catch (err) {
       alert(
         err.response?.data?.message || "Invalid Credentials"
